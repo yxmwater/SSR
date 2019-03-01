@@ -33,7 +33,13 @@ if(isDev){
                     test:/\.styl$/,
                     use: [
                         'vue-style-loader',
-                        'css-loader',
+                        {
+                            loader:'css-loader',
+                            options:{
+                                module:true,
+                                localIdentName:'[path]-[name]-[hash:base64:5]',
+                            }
+                        },
                         {
                             loader: 'postcss-loader',
                             options:{
@@ -68,7 +74,13 @@ if(isDev){
                     use:ExtractPlugin.extract({
                         fallback:'vue-style-loader',
                         use: [
-                            'css-loader',
+                            {
+                                loader:'css-loader',
+                                options:{
+                                    module:true,
+                                    localIdentName:'[hash:base64:5]',
+                                }
+                            },
                             {
                                 loader: 'postcss-loader',
                                 options:{
